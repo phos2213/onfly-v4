@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { SearchTabs } from '../components/search/SearchTabs';
 import { BookingsList } from '../components/bookings/BookingsList';
+import { SuggestionsList } from '../components/suggestions/SuggestionsList';
 import { Navbar } from '../components/layout/Navbar';
 
-const TABS = ['search', 'my bookings'];
+const TABS = ['search', 'my bookings', 'sugestões'];
 
 export function DashboardPage() {
   const [tab, setTab] = useState('search');
@@ -28,6 +29,7 @@ export function DashboardPage() {
 
         {tab === 'search' && <SearchTabs />}
         {tab === 'my bookings' && <BookingsList />}
+        {tab === 'sugestões' && <SuggestionsList />}
       </div>
     </div>
   );

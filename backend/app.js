@@ -4,6 +4,7 @@ import authRoutes from './routes/auth.js';
 import flightRoutes from './routes/flights.js';
 import hotelRoutes from './routes/hotels.js';
 import bookingRoutes from './routes/bookings.js';
+import safiraRoutes from './routes/safira.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/flights', flightRoutes);
 app.use('/api/hotels', hotelRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/safira', safiraRoutes);
 
 app.use(errorHandler);
 
