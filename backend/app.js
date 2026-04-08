@@ -9,7 +9,9 @@ import { errorHandler } from './middleware/errorHandler.js';
 const app = express();
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: process.env.FRONTEND_URL
+    ? process.env.FRONTEND_URL.split(',').map(s => s.trim())
+    : true,
   credentials: true,
 }));
 app.use(express.json());
