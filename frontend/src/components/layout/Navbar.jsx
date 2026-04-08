@@ -13,7 +13,8 @@ export function Navbar() {
   const amadeusUrl = import.meta.env.VITE_AMADEUS_API_URL;
 
   function handleAmadeusAuth() {
-    window.location.href = `${amadeusUrl}/auth/google/callback`;
+    const base = amadeusUrl?.startsWith('http') ? amadeusUrl : `https://${amadeusUrl}`;
+    window.location.href = `${base}/auth/google/callback`;
   }
 
   return (
