@@ -8,12 +8,15 @@ import { errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
 
-app.use(cors({
+const corsOptions = {
   origin: process.env.FRONTEND_URL
     ? process.env.FRONTEND_URL.split(',').map(s => s.trim())
     : true,
   credentials: true,
-}));
+};
+
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
